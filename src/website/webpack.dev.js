@@ -6,7 +6,7 @@ const webpackConfig = {
   devtool: 'inline-source-map',
   entry: [
     'babel-polyfill',
-    path.resolve(__dirname, './src/client/index'),
+    path.resolve(__dirname, './modules/client/index'),
   ],
   output: {
     path: path.resolve(__dirname, './public/dist'),
@@ -15,7 +15,7 @@ const webpackConfig = {
   },
   resolve: {
     modules: [
-      path.resolve(__dirname, './src'),
+      path.resolve(__dirname, './modules'),
       'node_modules',
     ],
   },
