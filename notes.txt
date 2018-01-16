@@ -1,0 +1,10 @@
+// What is es modules and what for?
+
+1. https://github.com/rollup/rollup/wiki/ES6-modules
+
+2. https://github.com/rollup/rollup/wiki/pkg.module 
+
+3. https://github.com/jsforum/jsforum/issues/5
+
+4. https://unpkg.com
+
