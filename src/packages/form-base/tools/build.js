@@ -4,7 +4,7 @@ const Duplex = require('stream').Duplex;
 const { forEachObjIndexed } = require('ramda');
 const chalk = require('chalk');
 
-const INFO_TO_COMPILE = require('./info-to-compile');
+const INFO_TO_COMPILE = require('./compile-config');
 
 
 const exec = (command, extraEnv) =>
@@ -30,9 +30,13 @@ const compileAccordingToInfo = ({
   messages,
   command,
   moduleType,
+  env = 'development',
 }) => {
   const compileToESLogger = createLogger(messages);
-  const execCompilingToES = exec(command, { BABEL_ENV: moduleType });
+  const execCompilingToES = exec(command, { 
+      BABEL_ENV: moduleType, 
+      NODE_ENV: env, 
+  });
 
   compileToESLogger.pipe(execCompilingToES.stdin);
   execCompilingToES.stdout.pipe(compileToESLogger);

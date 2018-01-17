@@ -1,4 +1,4 @@
-const INFO_TO_COMPILE = {
+const COMPILE_CONFIG = {
   TO_ES: {
     command: 'npx babel modules -d es --ignore __tests__',
     moduleType: 'es',
@@ -8,7 +8,7 @@ const INFO_TO_COMPILE = {
     },
   },
   TO_CMJS: {
-    command: 'babel modules -d cmjs --ignore __tests__',
+    command: 'npx babel modules -d cmjs --ignore __tests__',
     moduleType: 'cmjs',
     messages: {
       onBeforeRun: 'Compiling to CMJS modules\n',
@@ -16,7 +16,7 @@ const INFO_TO_COMPILE = {
     },
   },
   TO_DEV_UMD: {
-    command: 'rollup -c -i modules/index.js -o umd/form-base.js',
+    command: 'npx rollup -c -i modules/index.js -o umd/form-base.js',
     moduleType: 'es',
     env: 'development',
     messages: {
@@ -25,7 +25,7 @@ const INFO_TO_COMPILE = {
     },
   },
   TO_PROD_UMD: {
-    command: 'rollup -c -i modules/index.js -o umd/form-base.min.js',
+    command: 'npx rollup -c -i modules/index.js -o umd/form-base.min.js',
     moduleType: 'es',
     env: 'production',
     messages: {
@@ -36,4 +36,4 @@ const INFO_TO_COMPILE = {
 };
 
 
-module.exports =  INFO_TO_COMPILE;
+module.exports =  COMPILE_CONFIG;

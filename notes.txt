@@ -8,3 +8,27 @@
 
 4. https://unpkg.com
 
+
+Each package contains package.json file.
+
+In dependencies field this package contains all dependencies necessary to work 
+with project after installation.
+This field tells - to work properly with this package you need to install this packages with exact this versions.compileToESLogger
+Dev dependencies contains packages, that is necessary to develop this package.
+Here you cann see react, redux and others. It's runtime dependencies. And according to this they should be in dependencies field.
+But this is global dependencies. It means that one project can have only one react and one redux dependency.
+And all installed dependency can have only this version.
+Project can't have multiple react, redux, react-router packages. Only single.
+
+So, in documentation for package we tell the user - hey, it works only with react >= 16.0.0.
+But we don't publish this dependency to npm.
+
+Only project-specific dependencies goes with this package.
+
+Like react-router with react-router-redux.
+
+React, Redux should be event peerDependencies.
+
+Packages, that is only used in tests should be in dev dependencies.
+Packages, that is only used for code compilation should also be in
+devDependencies.
