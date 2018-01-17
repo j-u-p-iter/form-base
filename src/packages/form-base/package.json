@@ -12,12 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "chalk": "^2.3.0"
   },
   "dependencies": {
-    "babel": "^6.23.0",
     "ramda": "^0.25.0"
   }
 }
