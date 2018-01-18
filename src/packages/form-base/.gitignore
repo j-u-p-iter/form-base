@@ -3,3 +3,4 @@ cmjs
 umd
 node_modules
 /*.js
+!rollup.config.js
