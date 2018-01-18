@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "node tools/build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "babel ./modules -d ./cmjs --ignore ./modules/__tests__ --watch",
+    "prepublish": "yarn run build",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
