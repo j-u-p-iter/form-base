@@ -20,11 +20,14 @@
     "babel-preset-react": "^6.24.1",
     "chalk": "^2.3.0",
     "react": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
     "rollup": "^0.54.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
+    "invariant": "^2.2.2",
     "ramda": "^0.25.0"
   }
 }
