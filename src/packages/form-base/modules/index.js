@@ -1,4 +1,4 @@
-import someModule from './some-module';
+import FormBase from './FormBase';
 
 
-export default someModule;
+export default FormBase;

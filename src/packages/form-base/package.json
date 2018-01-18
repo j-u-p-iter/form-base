@@ -2,7 +2,7 @@
   "name": "form-base",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "cmjs/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -17,6 +17,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "chalk": "^2.3.0",
+    "react": "^16.2.0",
     "rollup": "^0.54.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-uglify": "^2.0.1"

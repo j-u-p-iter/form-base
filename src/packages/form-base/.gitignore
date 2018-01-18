@@ -1,4 +1,5 @@
 es
 cmjs
+umd
 node_modules
 /*.js
