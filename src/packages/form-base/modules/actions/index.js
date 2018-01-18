@@ -1,4 +1,4 @@
-import formBaseActions from './formBaseActions';
+import * as formBaseActions from './formBaseActions';
 
 
 export { formBaseActions };

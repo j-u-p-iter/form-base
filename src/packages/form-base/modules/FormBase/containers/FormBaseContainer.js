@@ -17,7 +17,7 @@ class FormBaseContainer extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    
+
     console.log('onSubmitForm');
   }
 
@@ -25,7 +25,7 @@ class FormBaseContainer extends Component {
     const { Form, buttonText } = this.props;
 
     return (
-      <FormBaseView 
+      <FormBaseView
         buttonText={buttonText}
         Form={Form}
         onSubmit={this.onSubmit}
@@ -46,9 +46,9 @@ const mapStateToProps = (state = {}, { type }) => {
   };
 };
 
-const mapDispatchToProps = () => ({
-  formActions: bindActionCreators(formBaseActionCreators),
-}) 
+const mapDispatchToProps = dispatch => ({
+  formActions: bindActionCreators(formBaseActionCreators, dispatch),
+})
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormBaseContainer);
@@ -57,9 +57,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(FormBaseContainer);
 // 1. Redux store state should contain forms field.
 //    This field should contain all forms types with data according to these forms.
 //
-//    So, it would be great to check store state presence on before form init to inform user, 
+//    So, it would be great to check store state presence on before form init to inform user,
 //    that forms field is required.
 //
-// 2. Write tests in parallel with writing base code 
+// 2. Write tests in parallel with writing base code
 //
 // 3.
