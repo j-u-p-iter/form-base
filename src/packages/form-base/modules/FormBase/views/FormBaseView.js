@@ -1,14 +1,11 @@
 import React from 'react';
 
 
-const FormBaseView = ({ onSubmit }) => (
-  <form onSubmit={onSubmit}>
-    FormBase
-
-    <input  />
-
-    <button>OnSubmit</button>
-  </form>
+const FormBaseView = ({ onSubmit, buttonText, Form }) => (
+  <Form 
+    onSubmit={onSubmit} 
+    buttonText={buttonText}
+  />
 );
 
 

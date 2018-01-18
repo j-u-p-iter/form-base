@@ -23,5 +23,9 @@ class FormBaseContainer extends Component {
   }
 };
 
+FormBaseContainer.defaultProps = {
+  buttonText: 'Submit Form',
+};
+
 
 export default FormBaseContainer;
