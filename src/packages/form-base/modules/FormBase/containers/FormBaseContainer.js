@@ -3,12 +3,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import invariant from 'invariant';
 import { has, path } from 'ramda';
+import { SchemaValidator } from '@j.u.p.iter/validator';
 
 import { FormBaseView } from '../views';
 import { formBaseActionCreators } from '../../actionCreators';
 
 
 class FormBaseContainer extends Component {
+  _validator = new SchemaValidator({
+    [this._config.modelName]: this._config.schema
+  }, 'ru');
+
   componentDidMount() {
     const { type, data, formActions: { initForm } } = this.props;
 
