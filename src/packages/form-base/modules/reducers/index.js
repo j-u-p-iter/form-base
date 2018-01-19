@@ -1,4 +1,4 @@
-import formBaseReducer from './formBaseReducer';
+import createFormBaseReducer from './createFormBaseReducer';
 
 
-export { formBaseReducer };
+export { createFormBaseReducer };

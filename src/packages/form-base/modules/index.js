@@ -1,7 +1,7 @@
 import FormBase from './FormBase';
-import { formBaseReducer } from './reducers';
+import { createFormBaseReducer } from './reducers';
 
 
-export { formBaseReducer };
+export { createFormBaseReducer };
 
 export default FormBase;

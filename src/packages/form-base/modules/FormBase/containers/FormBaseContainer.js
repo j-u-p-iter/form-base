@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import invariant from 'invariant';
-import { has } from 'ramda';
+import { has, path } from 'ramda';
 
 import { FormBaseView } from '../views';
 import { formBaseActionCreators } from '../../actionCreators';
@@ -38,11 +38,14 @@ FormBaseContainer.defaultProps = {
   buttonText: 'Submit Form',
 };
 
-const mapStateToProps = (state = {}, { type }) => {
-  invariant(has('forms', state), 'Your store should contain \'forms\' field state');
+const mapStateToProps = (state, { type }) => {
+  invariant(
+    has('forms', state),
+    'Your store should contain \'forms\' field state',
+  );
 
   return {
-    formData: state.forms && state.forms[type],
+    formData: path(['forms', type], state),
   };
 };
 
