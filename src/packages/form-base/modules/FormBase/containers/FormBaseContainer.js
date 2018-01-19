@@ -15,10 +15,12 @@ class FormBaseContainer extends Component {
     initForm(type, data);
   }
 
-  onSubmit(event) {
+  onSubmit = event => {
     event.preventDefault();
 
-    console.log('onSubmitForm');
+    const { formActions: { submitForm }, type } = this.props;
+
+    submitForm(type);
   }
 
   render() {
@@ -44,6 +46,16 @@ const mapStateToProps = (state, { type }) => {
     'Your store should contain \'forms\' field state',
   );
 
+  invariant(
+    type,
+    'Type should be provided',
+  );
+
+  invariant(
+    path(['forms', type], state),
+    'Type should be correct',
+  );
+
   return {
     formData: path(['forms', type], state),
   };
@@ -51,7 +63,7 @@ const mapStateToProps = (state, { type }) => {
 
 const mapDispatchToProps = dispatch => ({
   formActions: bindActionCreators(formBaseActionCreators, dispatch),
-})
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormBaseContainer);
@@ -64,5 +76,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(FormBaseContainer);
 //    that forms field is required.
 //
 // 2. Write tests in parallel with writing base code
-//
-// 3.
