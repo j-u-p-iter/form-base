@@ -10,6 +10,8 @@ import { formBaseActionCreators } from '../../actionCreators';
 
 
 class FormBaseContainer extends Component {
+  _config = {}
+
   _validator = new SchemaValidator({
     [this._config.modelName]: this._config.schema
   }, 'ru');
@@ -29,20 +31,15 @@ class FormBaseContainer extends Component {
   }
 
   render() {
-    const { Form, buttonText } = this.props;
+    const { Form, buttonText, title } = this.props;
 
     return (
       <FormBaseView
-        buttonText={buttonText}
         Form={Form}
         onSubmit={this.onSubmit}
       />
     );
   }
-};
-
-FormBaseContainer.defaultProps = {
-  buttonText: 'Submit Form',
 };
 
 const mapStateToProps = (state, { type }) => {

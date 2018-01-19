@@ -29,7 +29,9 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
+    "@j.u.p.iter/validator": "^1.0.47",
     "invariant": "^2.2.2",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "styled-components": "^2.4.0"
   }
 }
