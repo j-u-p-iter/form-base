@@ -1,1 +1,1 @@
-export const INIT_FORM = 'INIT_FORM';
+export const INIT_FORM = '@@formBase/INIT_FORM';
