@@ -33,9 +33,9 @@ const compileAccordingToInfo = ({
   env = 'development',
 }) => {
   const compileToESLogger = createLogger(messages);
-  const execCompilingToES = exec(command, { 
-      BABEL_ENV: moduleType, 
-      NODE_ENV: env, 
+  const execCompilingToES = exec(command, {
+    BABEL_ENV: moduleType,
+    NODE_ENV: env,
   });
 
   compileToESLogger.pipe(execCompilingToES.stdin);
