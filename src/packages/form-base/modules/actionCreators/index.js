@@ -1,4 +1,8 @@
 import * as formBaseActionCreators from './formBaseActionCreators';
+import * as formBaseRowActionCreators from './formBaseRowActionCreators';
 
 
-export { formBaseActionCreators };
+export {
+  formBaseActionCreators,
+  formBaseRowActionCreators,
+};

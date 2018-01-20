@@ -1,6 +1,7 @@
 import invariant from 'invariant';
 
 import { formBaseActions } from '../actions';
+import { formBaseRowActions } from '../actions';
 
 
 const actionsRunner = {
@@ -11,6 +12,10 @@ const actionsRunner = {
   [formBaseActions.SUBMIT_FORM]: (state, { type }) => {
     return state;
   },
+
+  [formBaseRowActions.CHANGE_FIELD]: (state, { formType }) => {
+    return state;
+  },
 };
 
 const createFormBaseReducer = initialState => {
@@ -19,7 +24,7 @@ const createFormBaseReducer = initialState => {
   const formBaseReducer = (state = initialState, { type, payload }) => {
     const actionRunner = actionsRunner[type];
 
-    return actionRunner ? actionRunner(state, payload) : initialState; 
+    return actionRunner ? actionRunner(state, payload) : initialState;
   };
 
   return formBaseReducer;
