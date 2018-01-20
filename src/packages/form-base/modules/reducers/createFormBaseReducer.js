@@ -13,8 +13,14 @@ const actionsRunner = {
     return state;
   },
 
-  [formBaseRowActions.CHANGE_FIELD]: (state, { formType }) => {
-    return state;
+  [formBaseRowActions.CHANGE_FIELD]: (state, { formType, name, value }) => {
+    return {
+      ...state,
+      [formType]: {
+        ...state[formType],
+        [name]: value,
+      },
+    };
   },
 };
 
