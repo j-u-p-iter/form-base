@@ -2,20 +2,22 @@ import React from 'react';
 
 
 const FormBaseRowView = ({
+  Controller,
+  Row,
   onChange,
-  onInput,
   name,
   value,
   placeholder,
 }) => {
   return (
-    <input
-      name={name}
-      value={value}
-      onChange={onChange}
-      onInput={onInput}
-      placeholder={placeholder}
-    />
+    <Row>
+      <Controller
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+    </Row>
   );
 };
 

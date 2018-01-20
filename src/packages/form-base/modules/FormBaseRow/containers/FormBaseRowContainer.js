@@ -1,12 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { pathOr } from 'ramda';
+import { prop, pathOr } from 'ramda';
 
 import { FormBaseRowView } from '../views';
 import { formBaseRowActionCreators } from '../../actionCreators';
 import { firstSymbolToUpperCase } from '../../utils';
+import { FormRow, FormRowWithError } from '../styled-components';
 
+
+const getController = (type) => {
+  const controllerName = firstSymbolToUpperCase(type);
+
+  return require(`../views/elements/${controllerName}`).default;
+}
 
 const FormBaseRowContainer = ({
   actions: { changeField },
@@ -21,9 +28,12 @@ const FormBaseRowContainer = ({
     changeField({ formType, name, value });
   };
 
+  const Row = prop('length', errors) ? FormRowWithError : FormRow;
+
   return (
     <FormBaseRowView
-      type={firstSymbolToUpperCase(type)}
+      Controller={getController(type)}
+      Row={Row}
       value={value}
       name={name}
       placeholder={placeholder}
