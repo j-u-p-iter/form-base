@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const PasswordInput = () => <input type='password' />
+const PasswordInput = props => <input {...props} type='password' />
 
 
 export default PasswordInput;

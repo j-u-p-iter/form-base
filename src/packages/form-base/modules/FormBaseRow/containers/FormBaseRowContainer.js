@@ -43,6 +43,10 @@ const FormBaseRowContainer = ({
   );
 };
 
+FormBaseRowContainer.defaultProps = {
+  type: 'textInput',
+};
+
 const mapStateToProps = ({ forms }, { formType, name }) => ({
   value: forms[formType][name],
   errors: pathOr([], [formType, 'errors', name], forms),
