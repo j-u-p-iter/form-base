@@ -1,4 +1,7 @@
-export const INIT_FORM = '@@formBase/INIT_FORM';
+import { createFormBaseActionType } from '../utils';
 
-export const SUBMIT_FORM = '@@formBase/SUBMIT_FORM';
-export const SUBMIT_FORM_WITH_SUCCESS = '@@formBase/SUBMIT_FORM_WITH_SUCCESS';
+
+export const INIT_FORM = createFormBaseActionType('INIT_FORM');
+
+export const SUBMIT_FORM = createFormBaseActionType('SUBMIT_FORM');
+export const SUBMIT_FORM_WITH_SUCCESS = createFormBaseActionType('SUBMIT_FORM_WITH_SUCCESS');

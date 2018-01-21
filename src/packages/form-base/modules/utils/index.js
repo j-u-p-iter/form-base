@@ -1,14 +1,11 @@
+import { FORM_BASE_ACTION_PREFIX } from '../constants';
+
+
 // common
-const firstSymbolToUpperCase = (item: string): string => item.replace(
+export const firstSymbolToUpperCase = (item: string): string => item.replace(
   /^./,
   symbol => symbol.toUpperCase()
 );
-
-
-export {
-  firstSymbolToUpperCase
-};
-
 
 // Styles
 export const elementsSequence = (value=0, direction='bottom') => {
@@ -20,3 +17,6 @@ export const elementsSequence = (value=0, direction='bottom') => {
     &:first-child { margin-top: 0; }
   `;
 };
+
+// redux
+export const createFormBaseActionType = actionTypeBaseName => `${FORM_BASE_ACTION_PREFIX}/${actionTypeBaseName}`;

@@ -1,1 +1,4 @@
-export const CHANGE_FIELD = '@@form-base/CHANGE_FIELD';
+import { createFormBaseActionType } from '../utils';
+
+
+export const CHANGE_FIELD = createFormBaseActionType('CHANGE_FIELD');
