@@ -2,6 +2,11 @@
   "name": "form-base",
   "version": "1.0.0",
   "description": "",
+  "files": [
+    "cmjs",
+    "es",
+    "umd"
+  ],
   "main": "cmjs/index.js",
   "directories": {
     "doc": "docs"
