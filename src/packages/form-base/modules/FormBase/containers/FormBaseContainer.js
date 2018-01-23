@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import invariant from 'invariant';
-import { has, path } from 'ramda';
+import { has, path, prop } from 'ramda';
 import { SchemaValidator } from '@j.u.p.iter/validator';
 
 import { FormBaseView } from '../views';
@@ -15,6 +16,12 @@ class FormBaseContainer extends Component {
   _validator = new SchemaValidator({
     [this._config.modelName]: this._config.schema
   }, 'ru');
+
+  getChildContext = () => {
+    return {
+      formType: prop('type', this.props),
+    };
+  }
 
   componentDidMount() {
     const { type, data, formActions: { initForm } } = this.props;
@@ -41,6 +48,11 @@ class FormBaseContainer extends Component {
     );
   }
 };
+
+FormBaseContainer.childContextTypes = {
+  formType: PropTypes.string.isRequired,
+};
+
 
 const mapStateToProps = (state, { type }) => {
   invariant(

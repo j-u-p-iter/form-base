@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { prop, path, pathOr } from 'ramda';
@@ -17,13 +18,13 @@ const getController = (type) => {
 
 const FormBaseRowContainer = ({
   actions: { changeField },
-  formType,
   type,
-  value,
   name,
   placeholder,
-  errors,
-}) => {
+  forms,
+}, { formType }) => {
+  const value = path([formType, name], forms);
+  const errors = pathOr([], ['errors', name], forms);
   const onChange = ({ target: { name, value } }) => {
     changeField({ formType, name, value });
   };
@@ -47,9 +48,12 @@ FormBaseRowContainer.defaultProps = {
   type: 'textInput',
 };
 
-const mapStateToProps = (state, { formType, name }) => ({
-  value: path(['forms', formType, name], state),
-  errors: pathOr([], [formType, 'errors', name], prop('forms', state)),
+FormBaseRowContainer.contextTypes = {
+  formType: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = (state, { name }) => ({
+  forms: prop('forms', state),
 });
 
 const mapDispatchToProps = dispatch => ({
