@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { prop, pathOr } from 'ramda';
+import { prop, path, pathOr } from 'ramda';
 
 import { FormBaseRowView } from '../views';
 import { formBaseRowActionCreators } from '../../actionCreators';
@@ -47,9 +47,9 @@ FormBaseRowContainer.defaultProps = {
   type: 'textInput',
 };
 
-const mapStateToProps = ({ forms }, { formType, name }) => ({
-  value: forms[formType][name],
-  errors: pathOr([], [formType, 'errors', name], forms),
+const mapStateToProps = (state, { formType, name }) => ({
+  value: path(['forms', formType, name], state),
+  errors: pathOr([], [formType, 'errors', name], prop('forms', state)),
 });
 
 const mapDispatchToProps = dispatch => ({
