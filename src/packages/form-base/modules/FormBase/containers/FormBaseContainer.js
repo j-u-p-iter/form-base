@@ -11,22 +11,31 @@ import { formBaseActionCreators } from '../../actionCreators';
 
 
 class FormBaseContainer extends Component {
-  _config = {}
+  _config = this.props.config;
 
   _validator = new SchemaValidator({
     [this._config.modelName]: this._config.schema
   }, 'ru');
 
+  _validateForm() {
+
+  }
+
+  _processFormData() {
+
+  }
+
+
   getChildContext = () => {
     return {
-      formType: prop('type', this.props),
+      formType: prop('formType', this._config),
     };
   }
 
   componentDidMount() {
-    const { type, data, formActions: { initForm } } = this.props;
+    const { type, formData, formActions: { initForm } } = this.props;
 
-    initForm(type, data);
+    initForm(type, formData);
   }
 
   onSubmit = event => {
@@ -54,24 +63,26 @@ FormBaseContainer.childContextTypes = {
 };
 
 
-const mapStateToProps = (state, { type }) => {
+const mapStateToProps = (state, { config }) => {
+  const { formType } = config;
+
   invariant(
     has('forms', state),
     'Your store should contain \'forms\' field state',
   );
 
   invariant(
-    type,
+    formType,
     'Type should be provided',
   );
 
   invariant(
-    path(['forms', type], state),
+    path(['forms', formType], state),
     'Type should be correct',
   );
 
   return {
-    formData: path(['forms', type], state),
+    formData: path(['forms', formType], state),
   };
 };
 
