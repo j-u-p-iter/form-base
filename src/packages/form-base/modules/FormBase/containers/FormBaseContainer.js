@@ -17,14 +17,30 @@ class FormBaseContainer extends Component {
     [this._config.modelName]: this._config.schema
   }, 'ru');
 
-  _validateForm() {
+  _validateForm(data) {
+    return this._validator.validate(
+      this._config.modelName,
+      {
+        values: data,
+        fieldsToExclude: this._config.attributesToExclude
+      }
+    );
+  }
+
+  _onProcessWithSuccess() {
+
+  }
+
+  _processErrors(errors) {
 
   }
 
   _processFormData() {
+    const { formData, formActions: { submitForm }, type } = this.props;
+    const errors = this._validateForm(formData);
 
+    errors ? this._processErrors(errors) : submitForm(type);
   }
-
 
   getChildContext = () => {
     return {
@@ -41,9 +57,7 @@ class FormBaseContainer extends Component {
   onSubmit = event => {
     event.preventDefault();
 
-    const { formActions: { submitForm }, type } = this.props;
-
-    submitForm(type);
+    this._processFormData();
   }
 
   render() {
