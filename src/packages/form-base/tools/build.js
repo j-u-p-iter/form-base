@@ -1,8 +1,9 @@
 const fs = require('fs');
 const spawn = require('child_process').spawn;
 const Duplex = require('stream').Duplex;
-const { forEachObjIndexed } = require('ramda');
 const chalk = require('chalk');
+
+const { forEachObjIndexed } = require('ramda');
 
 const INFO_TO_COMPILE = require('./compile-config');
 
@@ -15,31 +16,20 @@ const exec = (command, extraEnv) =>
 
 const writeMessage = message => process.stdout.write(message);
 
-const createLogger = messages => (new Duplex({
-  read() {
-    writeMessage(chalk.blue(messages.onBeforeRun));
-    this.push(null);
-  },
-  write(chunk, encoding, callback) {
-    writeMessage(chalk.green(messages.onSuccess));
-    callback();
-  },
-}));
-
 const compileAccordingToInfo = ({
   messages,
   command,
   moduleType,
   env = 'development',
 }) => {
-  const compileToESLogger = createLogger(messages);
-  const execCompilingToES = exec(command, {
+  writeMessage(chalk.blue(messages.onBeforeRun));
+
+  const execCompiling = exec(command, {
     BABEL_ENV: moduleType,
     NODE_ENV: env,
   });
 
-  compileToESLogger.pipe(execCompilingToES.stdin);
-  execCompilingToES.stdout.pipe(compileToESLogger);
+  execCompiling.on('exit', () => writeMessage(chalk.green(messages.onSuccess)));
 };
 
 forEachObjIndexed(compileAccordingToInfo, INFO_TO_COMPILE);
