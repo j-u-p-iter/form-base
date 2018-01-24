@@ -17,19 +17,21 @@ const COMPILE_CONFIG = {
   },
   TO_DEV_UMD: {
     command: 'npx rollup -c -i modules/index.js -o umd/form-base.js',
-    moduleType: 'es',
+    moduleType: 'umd',
     env: 'development',
     messages: {
       onBeforeRun: 'Compiling to development UMD module\n',
+      onError: 'Compiling to development UMD module is failed\n',
       onSuccess: 'Compiled to development UMD module with success\n',
     },
   },
   TO_PROD_UMD: {
     command: 'npx rollup -c -i modules/index.js -o umd/form-base.min.js',
-    moduleType: 'es',
+    moduleType: 'umd',
     env: 'production',
     messages: {
       onBeforeRun: 'Compiling to production UMD module\n',
+      onError: 'Compiling to production UMD module is failed\n',
       onSuccess: 'Compiled to production UMD module with success\n',
     },
   },

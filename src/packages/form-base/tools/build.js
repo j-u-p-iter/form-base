@@ -29,7 +29,13 @@ const compileAccordingToInfo = ({
     NODE_ENV: env,
   });
 
-  execCompiling.on('exit', () => writeMessage(chalk.green(messages.onSuccess)));
+  execCompiling.stderr.on('data', error => writeMessage(error.toString()));
+
+  execCompiling
+    .on('exit', (code) => {
+      code !== 0 && writeMessage(chalk.red(messages.onError));
+      code === 0 && writeMessage(chalk.green(messages.onSuccess));
+    });
 };
 
 forEachObjIndexed(compileAccordingToInfo, INFO_TO_COMPILE);
