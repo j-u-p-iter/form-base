@@ -40,6 +40,7 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
+    "@j.u.p.iter/i18n": "^1.0.10",
     "@j.u.p.iter/validator": "^1.0.47",
     "axios": "^0.17.1",
     "invariant": "^2.2.2",

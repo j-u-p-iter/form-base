@@ -8,10 +8,13 @@ import { SchemaValidator } from '@j.u.p.iter/validator';
 
 import { FormBaseView } from '../views';
 import { formBaseActionCreators } from '../../actionCreators';
+import ErrorsParser from './ErrorsParser';
 
 
 class FormBaseContainer extends Component {
   _config = this.props.config;
+
+  _errorsParser = new ErrorsParser(this._config.i18n);
 
   _validator = new SchemaValidator({
     [this._config.modelName]: this._config.schema
@@ -32,7 +35,10 @@ class FormBaseContainer extends Component {
   }
 
   _processErrors(errors) {
+    const { formActions: { submitFormWithErrors } } = this.props;
+    const { formType } = this._config;
 
+    submitFormWithErrors(formType, this._errorsParser.parse(errors));
   }
 
   _processFormData() {

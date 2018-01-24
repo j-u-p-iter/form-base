@@ -16,7 +16,7 @@ export const submitFormWithSuccess = data => ({
   payload: { data },
 });
 
-export const submitFormWithError = (type, errors) => ({
-  type: formBaseActions.SUBMIT_FORM_WITH_ERROR,
-  payload: { type, errors },
+export const submitFormWithErrors = (formType, errors) => ({
+  type: formBaseActions.SUBMIT_FORM_WITH_ERRORS,
+  payload: { formType, errors },
 });

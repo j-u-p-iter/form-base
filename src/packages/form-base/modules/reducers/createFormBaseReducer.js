@@ -13,12 +13,22 @@ const actionsRunner = {
     return state;
   },
 
+  [formBaseActions.SUBMIT_FORM_WITH_ERRORS]: (state, { formType, errors }) => {
+    return {
+      ...state,
+      [formType]: {
+        ...state[formType],
+        errors: errors,
+      },
+    };
+  },
+
   [formBaseRowActions.CHANGE_FIELD]: (state, { formType, name, value }) => {
     return {
       ...state,
       [formType]: {
         ...state[formType],
-        [name]: value,
+        errors: value,
       },
     };
   },

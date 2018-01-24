@@ -6,7 +6,7 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/errors/-/errors-1.0.3.tgz#ca8d3ad5080487cfe3d9d65a17c69a3e6ee1814e"
 
-"@j.u.p.iter/i18n@1.0.10":
+"@j.u.p.iter/i18n@1.0.10", "@j.u.p.iter/i18n@^1.0.10":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/i18n/-/i18n-1.0.10.tgz#bf3c55c4aa0a111d7ccb1643fbb7d9d5be12f28c"
   dependencies:
