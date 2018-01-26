@@ -6,9 +6,9 @@ export const initForm = (type, data) => ({
   payload: { type, data },
 });
 
-export const submitForm = type => ({
+export const submitForm = formType => ({
   type: formBaseActions.SUBMIT_FORM,
-  payload: { type },
+  payload: { formType },
 });
 
 export const submitFormWithSuccess = data => ({

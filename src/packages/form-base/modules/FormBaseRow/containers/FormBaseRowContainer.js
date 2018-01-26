@@ -24,7 +24,7 @@ const FormBaseRowContainer = ({
   forms,
 }, { formType }) => {
   const value = path([formType, name], forms);
-  const errors = pathOr([], ['errors', name], forms);
+  const errors = pathOr([], [formType, 'errors', name], forms);
   const onChange = ({ target: { name, value } }) => {
     changeField({ formType, name, value });
   };

@@ -4,33 +4,31 @@ import { formBaseActions } from '../actions';
 import { formBaseRowActions } from '../actions';
 
 
+const updateState = (state, formType, dataToUpdate) => (
+  {
+    ...state,
+    [formType]: {
+      ...state[formType],
+      ...dataToUpdate
+    },
+  }
+);
+
 const actionsRunner = {
   [formBaseActions.INIT_FORM]: (state, { type, data }) => {
     return state;
   },
 
-  [formBaseActions.SUBMIT_FORM]: (state, { type }) => {
-    return state;
+  [formBaseActions.SUBMIT_FORM]: (state, { formType }) => {
+    return updateState(state, formType, { errors: [] });
   },
 
   [formBaseActions.SUBMIT_FORM_WITH_ERRORS]: (state, { formType, errors }) => {
-    return {
-      ...state,
-      [formType]: {
-        ...state[formType],
-        errors: errors,
-      },
-    };
+    return updateState(state, formType, { errors });
   },
 
   [formBaseRowActions.CHANGE_FIELD]: (state, { formType, name, value }) => {
-    return {
-      ...state,
-      [formType]: {
-        ...state[formType],
-        errors: value,
-      },
-    };
+    return updateState(state, formType, { [name]: value });
   },
 };
 

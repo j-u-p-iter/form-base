@@ -24,3 +24,8 @@ export const FormRowWithError = FormRow.extend`
     border-color: #f30;
   }
 `;
+
+export const ErrorContainer = styled.div`
+  margin: 4px 0 0;
+  font-size: 11px;
+`;

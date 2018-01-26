@@ -8,17 +8,20 @@ import { SchemaValidator } from '@j.u.p.iter/validator';
 
 import { FormBaseView } from '../views';
 import { formBaseActionCreators } from '../../actionCreators';
-import ErrorsParser from './ErrorsParser';
+import ErrorsParser from '../../ErrorsParser';
 
 
 class FormBaseContainer extends Component {
   _config = this.props.config;
 
-  _errorsParser = new ErrorsParser(this._config.i18n);
+  _errorsParser = new ErrorsParser({
+    i18n: this._config.i18n,
+    schema: this._config.schema,
+  });
 
   _validator = new SchemaValidator({
     [this._config.modelName]: this._config.schema
-  }, 'ru');
+  }, this._config.locales);
 
   _validateForm(data) {
     return this._validator.validate(
@@ -42,10 +45,10 @@ class FormBaseContainer extends Component {
   }
 
   _processFormData() {
-    const { formData, formActions: { submitForm }, type } = this.props;
+    const { formData, formActions: { submitForm } } = this.props;
     const errors = this._validateForm(formData);
 
-    errors ? this._processErrors(errors) : submitForm(type);
+    errors ? this._processErrors(errors) : submitForm(this._config.formType);
   }
 
   getChildContext = () => {
@@ -55,9 +58,9 @@ class FormBaseContainer extends Component {
   }
 
   componentDidMount() {
-    const { type, formData, formActions: { initForm } } = this.props;
+    const { formData, formActions: { initForm } } = this.props;
 
-    initForm(type, formData);
+    initForm(this._config.formType, formData);
   }
 
   onSubmit = event => {
@@ -67,7 +70,7 @@ class FormBaseContainer extends Component {
   }
 
   render() {
-    const { Form, buttonText, title } = this.props;
+    const { Form } = this.props;
 
     return (
       <FormBaseView

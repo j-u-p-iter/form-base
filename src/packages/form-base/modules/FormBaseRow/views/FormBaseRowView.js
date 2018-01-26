@@ -1,4 +1,7 @@
 import React from 'react';
+import { map } from 'ramda';
+
+import { ErrorContainer } from '../styled-components';
 
 
 const FormBaseRowView = ({
@@ -8,6 +11,7 @@ const FormBaseRowView = ({
   name,
   value,
   placeholder,
+  errors,
 }) => {
   return (
     <Row>
@@ -17,6 +21,13 @@ const FormBaseRowView = ({
         onChange={onChange}
         placeholder={placeholder}
       />
+      {
+        map((error) => (
+          <ErrorContainer key={error}>
+            {error}
+          </ErrorContainer>
+        ), errors)
+      }
     </Row>
   );
 };

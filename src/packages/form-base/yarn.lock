@@ -16,9 +16,9 @@
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/json-parser/-/json-parser-1.0.4.tgz#0411a21dfa2707079eb42abdd89816e5e4e029be"
 
-"@j.u.p.iter/validator@^1.0.47":
-  version "1.0.47"
-  resolved "https://registry.yarnpkg.com/@j.u.p.iter/validator/-/validator-1.0.47.tgz#df65d358f7a1a68fd7488e81fa8bd361e14da220"
+"@j.u.p.iter/validator@^1.0.51":
+  version "1.0.51"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/validator/-/validator-1.0.51.tgz#40b7ee94ba504e0884827ed631b75776e6fc5e8c"
   dependencies:
     "@j.u.p.iter/errors" "1.0.3"
     "@j.u.p.iter/i18n" "1.0.10"

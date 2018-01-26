@@ -1,13 +1,12 @@
-import schema from '@j.u.p.iter/tutorializer-schema';
+const camelCaseToSpaceDelimiter = string => string.replace(
+  /[A-Z]/g,
+  symbol => ` ${symbol}`.toLowerCase()
+);
 
-import {
-  camelCaseToSpaceDelimiter,
-  firstLetterToLowerCase
-} from '../../../utils/common';
-
-import {
-  Obj
-} from '../../../custom_types/common/interfaces';
+const firstLetterToLowerCase = string => string.replace(
+  /^[A-Z]/,
+  symbol => symbol.toLowerCase()
+);
 
 
 class ErrorsParser {
@@ -15,7 +14,7 @@ class ErrorsParser {
   _ERRORS_IDS = ['duplicateKey'];
 
   _parseErrorAttributeName(error) {
-    return Object.keys(schema[error.modelName + 'Schema']).find((attributeName) => {
+    return Object.keys(this.schema[error.modelName + 'Schema']).find((attributeName) => {
       const regExp = new RegExp('\\$' + attributeName);
 
       return regExp.test(error.message);
@@ -46,10 +45,17 @@ class ErrorsParser {
   }
 
   _parseErrorMessage(error, errorAttributeName) {
-    return i18n.t(
+    return this.i18n.t(
       this._getPathToLocale(error, errorAttributeName),
       this._getDataToLocalize(errorAttributeName)
     );
+  }
+
+  constructor(props) {
+    const { i18n, schema } = props;
+
+    this.i18n = i18n;
+    this.schema = schema;
   }
 
   parse(errors) {
