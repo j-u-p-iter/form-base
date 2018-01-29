@@ -1,1 +1,1 @@
-{ "presets": ["../tools/babel-preset"] }
+{ "presets": ["../scripts/babel-preset"] }
