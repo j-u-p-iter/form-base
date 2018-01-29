@@ -6,13 +6,12 @@ import { formBaseActions } from '../actions';
 
 const createDataSender = (method) => (url, data) => axios[method](url, data)
 const saveData = createDataSender('post');
-const updateData = createDataSender('put');
+const updateData = createDataSender('post');
 
 function* onSaveFormDataSaga(url) {
   while(true) {
-    const { payload: { type } } = yield take(formBaseActions.SUBMIT_FORM);
-    const data = yield select(state => state.forms[type]);
-
+    const { payload: { formType } } = yield take(formBaseActions.SUBMIT_FORM);
+    const data = yield select(state => state.forms[formType]);
     const result = yield call(saveData, url, data);
 
     yield put(formBaseActionCreators.submitFormWithSuccess(result));
