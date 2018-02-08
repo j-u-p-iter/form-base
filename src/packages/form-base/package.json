@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "@j.u.p.iter/i18n": "^1.0.10",
-    "@j.u.p.iter/validator": "^1.0.51",
+    "@j.u.p.iter/modules-builder": "^1.0.1",
+    "@j.u.p.iter/validator": "1.0.52",
     "axios": "^0.17.1",
     "invariant": "^2.2.2",
     "prop-types": "^15.6.0",

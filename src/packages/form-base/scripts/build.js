@@ -1,4 +1,4 @@
-const createModulesBuilder = require('modules-builder');
+const createModulesBuilder = require('@j.u.p.iter/modules-builder');
 
 const INFO_TO_COMPILE = require('./compile-config');
 
