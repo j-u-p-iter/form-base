@@ -33,8 +33,12 @@ class FormBaseContainer extends Component {
     );
   }
 
-  _onProcessWithSuccess() {
+  _onProcessWithSuccess(result) {
+    const onProcessWithSuccess = this._config.onProcessWithSuccess;
+    const { formActions: { resetForm } } = this.props;
 
+    onProcessWithSuccess && onProcessWithSuccess(result);
+    resetForm(this._config.formType);
   }
 
   _processErrors(errors) {
@@ -57,6 +61,12 @@ class FormBaseContainer extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { formData: { result } } = nextProps;
+
+    result && this._onProcessWithSuccess(result);
+  }
+
   componentDidMount() {
     const { formData, formActions: { initForm } } = this.props;
 
@@ -70,7 +80,7 @@ class FormBaseContainer extends Component {
   }
 
   render() {
-    const { Form } = this.props;
+    const { Form, formData: { result } } = this.props;
 
     return (
       <FormBaseView

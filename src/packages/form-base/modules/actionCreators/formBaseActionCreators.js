@@ -11,12 +11,17 @@ export const submitForm = formType => ({
   payload: { formType },
 });
 
-export const submitFormWithSuccess = data => ({
+export const submitFormWithSuccess = ({ formType, result }) => ({
   type: formBaseActions.SUBMIT_FORM_WITH_SUCCESS,
-  payload: { data },
+  payload: { formType, result },
 });
 
 export const submitFormWithErrors = (formType, errors) => ({
   type: formBaseActions.SUBMIT_FORM_WITH_ERRORS,
   payload: { formType, errors },
+});
+
+export const resetForm = formType => ({
+  type: formBaseActions.RESET_FORM,
+  payload: { formType },
 });
