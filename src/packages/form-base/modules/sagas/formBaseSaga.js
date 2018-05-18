@@ -9,20 +9,21 @@ const saveData = createDataSender('post');
 const updateData = createDataSender('post');
 
 
-function* onSaveFormDataSaga(url) {
+function* onSaveFormDataSaga(commonConfig) {
   while(true) {
     const { payload: { formType } } = yield take(formBaseActions.SUBMIT_FORM);
+    const formConfig = commonConfig[formType];
     const data = yield select(state => state.forms[formType]);
-    const result = yield call(saveData, url, data);
+    const result = yield call(saveData, formConfig.paths.save, data);
 
     yield put(formBaseActionCreators.submitFormWithSuccess({ formType, result }));
   }
 }
 
-const createFormBaseSaga = ({ paths: { save } }) => {
+const createFormBaseSaga = (commonConfig) => {
   return function* formBaseSaga() {
     yield all([
-      fork(onSaveFormDataSaga, save),
+      fork(onSaveFormDataSaga, commonConfig),
     ]);
   }
 };
