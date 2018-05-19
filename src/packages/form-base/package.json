@@ -1,6 +1,6 @@
 {
   "name": "@j.u.p.iter/form-base",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Very powerful form component",
   "files": [
     "cmjs",
