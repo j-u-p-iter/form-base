@@ -6,13 +6,7 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/errors/-/errors-1.0.3.tgz#ca8d3ad5080487cfe3d9d65a17c69a3e6ee1814e"
 
-"@j.u.p.iter/i18n@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@j.u.p.iter/i18n/-/i18n-1.0.10.tgz#bf3c55c4aa0a111d7ccb1643fbb7d9d5be12f28c"
-  dependencies:
-    intl-messageformat "^1.3.0"
-
-"@j.u.p.iter/i18n@^1.0.13":
+"@j.u.p.iter/i18n@1.0.13", "@j.u.p.iter/i18n@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/i18n/-/i18n-1.0.13.tgz#ea2482c753697c43183a6ac2c2695703f7c3bec9"
   dependencies:
@@ -30,12 +24,12 @@
     chalk "^2.3.0"
     ramda "^0.25.0"
 
-"@j.u.p.iter/validator@1.0.52":
-  version "1.0.52"
-  resolved "https://registry.yarnpkg.com/@j.u.p.iter/validator/-/validator-1.0.52.tgz#6855b15270062350107832654b7dded04c6457ea"
+"@j.u.p.iter/validator@^1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/validator/-/validator-1.0.54.tgz#611a959614fd011c381aced3d9e138ebe88ba21f"
   dependencies:
     "@j.u.p.iter/errors" "1.0.3"
-    "@j.u.p.iter/i18n" "1.0.10"
+    "@j.u.p.iter/i18n" "1.0.13"
     "@j.u.p.iter/json-parser" "1.0.4"
     ramda "^0.25.0"
     underscore "^1.8.3"

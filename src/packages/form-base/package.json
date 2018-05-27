@@ -1,6 +1,6 @@
 {
   "name": "@j.u.p.iter/form-base",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Very powerful form component",
   "files": [
     "cmjs",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@j.u.p.iter/i18n": "^1.0.13",
     "@j.u.p.iter/modules-builder": "^1.0.1",
-    "@j.u.p.iter/validator": "1.0.52",
+    "@j.u.p.iter/validator": "^1.0.54",
     "axios": "^0.17.1",
     "invariant": "^2.2.2",
     "prop-types": "^15.6.0",
