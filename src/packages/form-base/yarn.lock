@@ -2560,6 +2560,10 @@ v8flags@^2.1.1:
   dependencies:
     user-home "^1.1.1"
 
+validator@^10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-10.2.0.tgz#61d6b10c3d5c9f368c75c2ce8ca2b792522eaafa"
+
 validator@^7.0.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/validator/-/validator-7.2.0.tgz#a63dcbaba51d4350bf8df20988e0d5a54d711791"
