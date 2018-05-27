@@ -6,10 +6,17 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/errors/-/errors-1.0.3.tgz#ca8d3ad5080487cfe3d9d65a17c69a3e6ee1814e"
 
-"@j.u.p.iter/i18n@1.0.10", "@j.u.p.iter/i18n@^1.0.10":
+"@j.u.p.iter/i18n@1.0.10":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@j.u.p.iter/i18n/-/i18n-1.0.10.tgz#bf3c55c4aa0a111d7ccb1643fbb7d9d5be12f28c"
   dependencies:
+    intl-messageformat "^1.3.0"
+
+"@j.u.p.iter/i18n@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@j.u.p.iter/i18n/-/i18n-1.0.13.tgz#ea2482c753697c43183a6ac2c2695703f7c3bec9"
+  dependencies:
+    "@j.u.p.iter/modules-builder" "^1.0.1"
     intl-messageformat "^1.3.0"
 
 "@j.u.p.iter/json-parser@1.0.4":
