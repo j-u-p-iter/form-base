@@ -17,6 +17,10 @@
     "prepublish": "yarn run build",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-u-p-iter/form-base"
+  },
   "author": "j.u.p.iter",
   "license": "ISC",
   "devDependencies": {
